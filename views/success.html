@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FOB Solutions - Login Panel</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+
+    <link rel="stylesheet" href="/css/main.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/font/fonts.css" />
+
+</head>
+<body ng-app="mainApp">
+<div class="login-main">
+    <div class="login-main__top">
+        <img class="login-main__top__logo" src="/img/fob_logo.png">
+        <img class="login-main__top__line" src="/img/line.png">
+    </div>
+    <div class="login-main__bottom " ng-controller="loginCtrl">
+
+
+            <div class="login-main__bottom__link-box">
+                <h3 class="success">Welcome Fob Solutions Team. You're logged in.</h3>
+                <form action="/logout">
+                    <button type="submit" class="login-main__bottom__link-box__button button--logout">LOG OUT</button>
+                </form>
+
+            </div>
+    </div>
+
+</div>
+
+<script src="/js/angular.min.js"></script>
+<script src="/js/controller.min.js"></script>
+</body>
+</html>
