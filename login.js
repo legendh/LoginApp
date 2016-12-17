@@ -1,8 +1,13 @@
+'use strict';
 var express = require('express');
 var bodyParser = require('body-parser');
 var sessions = require('express-session');
 
+// Constants
 var session;
+var PORT = 8080;
+
+// App
 var app = express();
 
 app.use('/css', express.static(__dirname + '/assets/css'));
@@ -12,9 +17,6 @@ app.use('/font', express.static(__dirname + '/assets/fonts'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
 app.use(sessions({
     secret:'&^s4A52eEzs*/976*3234$#',
     resave:false,
@@ -34,7 +36,7 @@ app.get('/login', function (req, resp) {
     if(session.uniqueID){
         resp.redirect('/redirects');
     }
-   resp.sendFile('./views/login.html', {root: __dirname});
+    resp.sendFile('./views/login.html', {root: __dirname});
 });
 
 app.post('/login', function(req, resp){
@@ -42,12 +44,12 @@ app.post('/login', function(req, resp){
     output  = {};
 
     if(req.body.username =='test' && req.body.password == '1234'){
-       session.uniqueID = req.body.username;
-       //resp.redirect('/redirects');
+        session.uniqueID = req.body.username;
+        //resp.redirect('/redirects');
         output.status = true;
     }
     else{
-       //resp.redirect('/redirects');
+        //resp.redirect('/redirects');
         output.status = false;
         output.message = 'Please check your username or password.';
     }
@@ -57,15 +59,15 @@ app.post('/login', function(req, resp){
 });
 
 app.get('/logout',function(req, resp){
-   req.session.destroy();
-   resp.redirect('/login');
+    req.session.destroy();
+    resp.redirect('/login');
 });
 
 app.get('/success', function(req, resp){
-   session = req.session;
-   if(session.uniqueID != 'test'){
-       resp.send('Unauthorized access');
-   }
+    session = req.session;
+    if(session.uniqueID != 'test'){
+        resp.send('Unauthorized access');
+    }
     resp.sendFile('./views/success.html', {root: __dirname});
 });
 
@@ -79,6 +81,5 @@ app.get('/redirects',function(req, resp){
     }
 });
 
-app.listen(1337, function(){
-    console.log('Listening at Port 1337');
-});
+app.listen(PORT);
+console.log('Running on http://localhost:' + PORT);
