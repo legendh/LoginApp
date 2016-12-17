@@ -1,4 +1,4 @@
-FROM node:argon
+FROM node:4-onbuild
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -12,4 +12,4 @@ RUN npm install
 COPY . /usr/src/app
 
 EXPOSE 8080
-CMD [ "npm", "login.js" ]
+CMD [ "npm", "start" ]
