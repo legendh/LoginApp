@@ -1,15 +1,12 @@
 {
   "name": "loginapp",
   "version": "1.0.0",
-  "description": "This is Login App",
-  "main": "login.js",
+  "description": "This is loginapp on docker",
+  "author": "Hakan Ergoksen (h_ergoksen@hotmail.com)",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node login.js"
+    "start": "node server.js"
   },
-
-  "author": "Hakan Ergoksen",
-  "license": "ISC",
   "dependencies": {
     "angular": "^1.6.0",
     "angular-route": "^1.6.0",
