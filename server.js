@@ -1,4 +1,3 @@
-'use strict';
 var express = require('express');
 var bodyParser = require('body-parser');
 var sessions = require('express-session');
@@ -16,7 +15,7 @@ app.use('/js', express.static(__dirname + '/assets/js'));
 app.use('/font', express.static(__dirname + '/assets/fonts'));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(sessions({
     secret:'&^s4A52eEzs*/976*3234$#',
     resave:false,
